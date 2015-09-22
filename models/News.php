@@ -9,12 +9,8 @@ class News{
         $id = intval($id);
 
         if ($id) {
-            $host = '127.0.0.1';
-            $dbname = 'mvc_site';
-            $user = 'root';
-            $pass = '';
-            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 
+            $db = Db::getConnection();
 
             $result = $db->query('SELECT * FROM news WHERE id=' . $id);
             $result->setFetchMode(PDO::FETCH_ASSOC);  // Оставляет идентификатор в виде названий
@@ -31,12 +27,7 @@ class News{
 
     //Подключаемся к БД
 
-        $host = '127.0.0.1';
-        $dbname = 'mvc_site';
-        $user = 'root';
-        $pass = '';
-        $db = new PDO("mysql:host=$host;dbname=$dbname",$user,$pass);
-
+            $db = Db::getConnection();
 
         //Объявляем пустой массив,делаем выборку данных
 
